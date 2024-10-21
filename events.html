@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Upcoming Events Notification System</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3" defer></script>
+  </head>
+  <body class="bg-gray-100">
+    <!-- Header -->
+    <nav class="bg-green-500 p-4 text-white flex justify-between">
+        <h1 class="text-3xl font-bold">Silver Oak University</h1>
+        <ul class="flex space-x-6">
+            <li><a href="index.html" class="hover:underline">Home</a></li>
+            <li><a href="events.html" class="hover:underline">Events</a></li>
+            <li><a href="about.html" class="hover:underline">About Us</a></li>
+            <li><a href="resources.html" class="hover:underline">Resources</a></li>
+            <li><a href="contact.html" class="hover:underline">Register</a></li>
+        </ul>
+    </nav>
+    <!-- Notifications Section -->
+    <section
+      id="notifications"
+      class="my-8 mx-4 p-4 bg-yellow-50 rounded-lg shadow-md"
+    >
+      <h2 class="text-2xl font-semibold text-gray-700 mb-4">Notifications</h2>
+      <div
+        id="notification-list"
+        class="p-4 bg-yellow-200 border border-yellow-300 rounded"
+      >
+        <!-- Notifications will appear here -->
+      </div>
+    </section>
+    <!-- Categories Section -->
+    <section
+      id="categories"
+      class="my-8 mx-4 p-4 bg-blue-50 rounded-lg shadow-md"
+    >
+      <h2 class="text-2xl font-semibold text-gray-700 mb-4">
+        Event Categories
+      </h2>
+      <ul class="flex flex-wrap gap-4">
+        <li
+          class="bg-yellow-200 px-4 py-2 rounded-lg cursor-pointer shadow"
+          onclick="filterEvents('all')"
+        >
+          All Events
+        </li>
+        <li
+          class="bg-yellow-200 px-4 py-2 rounded-lg cursor-pointer shadow"
+          onclick="filterEvents('seminar')"
+        >
+          Seminars
+        </li>
+        <li
+          class="bg-yellow-200 px-4 py-2 rounded-lg cursor-pointer shadow"
+          onclick="filterEvents('workshop')"
+        >
+          Workshops
+        </li>
+        <li
+          class="bg-yellow-200 px-4 py-2 rounded-lg cursor-pointer shadow"
+          onclick="filterEvents('sports')"
+        >
+          Sports
+        </li>
+        <li
+          class="bg-yellow-200 px-4 py-2 rounded-lg cursor-pointer shadow"
+          onclick="filterEvents('cultural')"
+        >
+          Cultural
+        </li>
+      </ul>
+    </section>
+
+    <!-- Event Cards Section -->
+    <section id="events" class="my-8 mx-4 p-4 bg-white rounded-lg shadow-md">
+      <h2 class="text-2xl font-semibold text-gray-700 mb-4"> Upcoming Events</h2>
+      <div
+        id="event-cards"
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+      >
+        <!-- Event Card Template -->
+        <div
+          class="event-card bg-white p-4 rounded-lg shadow-md category-workshop"
+        >
+          <h3 class="text-xl font-bold text-gray-800">Workshop on AI</h3>
+          <p class="text-gray-600">Date: October 25, 2024</p>
+          <p class="text-gray-600">Location: Silver Oak Auditorium</p>
+          <button
+            class="mt-2 px-4 py-2 bg-green-500 text-white font-semibold rounded hover:bg-green-600"
+            onclick="rsvp('Workshop on AI')"
+          >
+            RSVP
+          </button>
+          <button class="feedback-btn" onclick="feedback('Workshop on AI')">Give Feedback</button>
+        </div>
+        <div
+          class="event-card bg-white p-4 rounded-lg shadow-md category-cultural"
+        >
+          <h3 class="text-xl font-bold text-gray-800">Cultural Fest</h3>
+          <p class="text-gray-600">Date: November 5, 2024</p>
+          <p class="text-gray-600">Location: Central Grounds</p>
+          <button
+            class="mt-2 px-4 py-2 bg-green-500 text-white font-semibold rounded hover:bg-green-600"
+            onclick="rsvp('Cultural Fest')"
+          >
+            RSVP
+          </button>
+          <button class="feedback-btn" onclick="feedback('Workshop on AI')">Give Feedback</button>
+        </div>
+        <div
+          class="event-card bg-white p-4 rounded-lg shadow-md category-seminar"
+        >
+          <h3 class="text-xl font-bold text-gray-800">
+            Seminar on Quantum Computing
+          </h3>
+          <p class="text-gray-600">Date: October 30, 2024</p>
+          <p class="text-gray-600">Location: Room 101</p>
+          <button
+            class="mt-2 px-4 py-2 bg-green-500 text-white font-semibold rounded hover:bg-green-600"
+            onclick="rsvp('Seminar on Quantum Computing')"
+          >
+            RSVP
+          </button>
+          <button class="feedback-btn" onclick="feedback('Workshop on AI')">Give Feedback</button>
+        </div>
+        <div
+          class="event-card bg-white p-4 rounded-lg shadow-md category-sports"
+        >
+          <h3 class="text-xl font-bold text-gray-800">
+            Inter-College Basketball
+          </h3>
+          <p class="text-gray-600">Date: November 10, 2024</p>
+          <p class="text-gray-600">Location: Sports Ground</p>
+          <button
+            class="mt-2 px-4 py-2 bg-green-500 text-white font-semibold rounded hover:bg-green-600"
+            onclick="rsvp('Inter-College Basketball')"
+          >
+            RSVP
+          </button>
+          <button class="feedback-btn" onclick="feedback('Workshop on AI')">Give Feedback</button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-green-300 text-white-900 py-4">
+        <div class="container mx-auto text-center">
+          <!-- Footer Title or Branding -->
+         <h2 class="text-2xl font-bold mb-4">Silver Oak University</h2>
+      
+          <!-- Copyright Info -->
+          <p class="text-pink-900 text-sm">&copy; 2024 SOCET. All rights reserved.</p>
+        </div>
+      </footer>
+
+    <script>
+      // Filter events based on category
+      function filterEvents(category) {
+        const eventCards = document.querySelectorAll(".event-card");
+        eventCards.forEach((card) => {
+          if (
+            category === "all" ||
+            card.classList.contains(`category-${category}`)
+          ) {
+            card.style.display = "block";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      }
+      function feedback(eventName) {
+    const userFeedback = prompt(`Please provide your feedback for ${eventName}:`);
+    if (userFeedback) {
+        alert(`Thank you for your feedback on ${eventName}!`);
+        
+        // You can add logic here to store the feedback in the system
+    }
+}
+
+      // RSVP function
+      function rsvp(eventName) {
+        const notificationList = document.getElementById("notification-list");
+        const newNotification = document.createElement("div");
+        newNotification.innerHTML = `You have RSVP'd for the event: <strong>${eventName}</strong>`;
+        notificationList.appendChild(newNotification);
+        alert(`You have successfully RSVP'd for ${eventName}!`);
+      }
+    </script>
+  </body>
+</html>

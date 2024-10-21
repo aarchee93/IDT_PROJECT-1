@@ -1,0 +1,41 @@
+<!-- Save this as contact.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Silver Oak University</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3" defer></script>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Navbar -->
+    <nav class="bg-green-500 p-4 text-white flex justify-between">
+        <h1 class="text-3xl font-bold">Silver Oak University</h1>
+        <ul class="flex space-x-6">
+            <li><a href="index.html" class="hover:underline">Home</a></li>
+            <li><a href="events.html" class="hover:underline">Events</a></li>
+            <li><a href="about.html" class="hover:underline">About Us</a></li>
+            <li><a href="resources.html" class="hover:underline">Resources</a></li> <!-- New Link -->
+            <li><a href="contact.html" class="hover:underline">Register</a></li>
+        </ul>
+        
+    </nav>
+
+    <!-- Contact Form -->
+    <section class="my-8 mx-4 p-4 bg-white rounded-lg shadow-md">
+        <h2 class="text-2xl font-semibold text-gray-700 mb-4">Register Yourself</h2>
+        <form action="#" method="POST" class="grid grid-cols-1 gap-6">
+            <input type="text" name="name" placeholder="Your Name" class="p-3 border border-gray-300 rounded-md">
+            <input type="email" name="email" placeholder="Your Email" class="p-3 border border-gray-300 rounded-md">
+            <textarea name="message" placeholder="Your Message" class="p-3 border border-gray-300 rounded-md h-32"></textarea>
+            <button type="submit" class="bg-green-500 text-white py-3 px-6 rounded-md hover:bg-green-600">Register</button>
+        </form>
+    </section>
+
+   
+    
+
+</body>
+</html>
